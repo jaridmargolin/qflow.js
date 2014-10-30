@@ -1,0 +1,8 @@
+{
+  "fileName": "qflow",
+  "globalAlias": "qflow",
+  "exclude": ["q"],
+  "dependencies": {
+    "default": ["q"]
+  }
+}
