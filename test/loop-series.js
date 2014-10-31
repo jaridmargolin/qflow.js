@@ -31,7 +31,7 @@ describe('loop-series.js', function () {
   it('Should execute iterators in a series.', function (done) {
     var start = Date.now();
     var count = 2;
-    var delay = 1;
+    var delay = 100;
 
     loopSeries(count, function (i) {
       var deffered = Q.defer();

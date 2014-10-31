@@ -14,9 +14,9 @@ define([
  * ---------------------------------------------------------------------------*/
 
 /**
- * Create an array of promise iterators that will be executed in parallel
- * and return a promise that will be resolved once each individual
- * promise in the array has been resolved.
+ * Create an array of promise iterators, for x interations, that will
+ * be executed in parallel and return a promise that will be resolved once
+ * each individual promise in the array has been resolved.
  *
  * @public
  *

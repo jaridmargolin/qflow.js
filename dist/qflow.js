@@ -19,15 +19,15 @@
  * 
  * Copyright (c) 2014
  */
-var loopParallel, loopSeries, wait, qflow;
+var loopParallel, loopSeries, eachParallel, wait, qflow;
 loopParallel = function (Q) {
   /* -----------------------------------------------------------------------------
    * loopParallel
    * ---------------------------------------------------------------------------*/
   /**
-   * Create an array of promise iterators that will be executed in parallel
-   * and return a promise that will be resolved once each individual
-   * promise in the array has been resolved.
+   * Create an array of promise iterators, for x interations, that will
+   * be executed in parallel and return a promise that will be resolved once
+   * each individual promise in the array has been resolved.
    *
    * @public
    *
@@ -75,6 +75,34 @@ loopSeries = function (Q) {
   };
 }(q);
 /*!
+ * eacb-parallel.js
+ * 
+ * Copyright (c) 2014
+ */
+eachParallel = function (Q) {
+  /* -----------------------------------------------------------------------------
+   * eacbParallel
+   * ---------------------------------------------------------------------------*/
+  /**
+   * Create an array of promise iterators, for each key in an object, that will
+   * be executed in parallel and return a promise that will be resolved once
+   * each individual promise in the array has been resolved.
+   *
+   * @public
+   *
+   * @param {object} obj - Object to iterate over.
+   * @param {function} iterator - Function that will be passed the iteration
+   *   index and will return a promise.
+   */
+  return function (obj, iterator) {
+    var tasks = [];
+    for (var key in obj) {
+      tasks.push(iterator(obj[key], key));
+    }
+    return Q.all(tasks);
+  };
+}(q);
+/*!
  * wait.js
  * 
  * Copyright (c) 2014
@@ -106,6 +134,7 @@ wait = function (Q) {
 qflow = {
   loopParallel: loopParallel,
   loopSeries: loopSeries,
+  eachParallel: eachParallel,
   wait: wait
 };
 

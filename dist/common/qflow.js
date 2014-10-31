@@ -6,6 +6,7 @@
 
 var loopParallel = require('./loop-parallel');
 var loopSeries = require('./loop-series');
+var eachParallel = require('./each-parallel');
 var wait = require('./wait');
 
 
@@ -16,6 +17,7 @@ var wait = require('./wait');
 module.exports = {
   loopParallel: loopParallel,
   loopSeries: loopSeries,
+  eachParallel: eachParallel,
   wait: wait
 };
 

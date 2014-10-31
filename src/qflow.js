@@ -7,8 +7,9 @@
 define([
   './loop-parallel',
   './loop-series',
+  './each-parallel',
   './wait'
-], function (loopParallel, loopSeries, wait) {
+], function (loopParallel, loopSeries, eachParallel, wait) {
 
 
 /* -----------------------------------------------------------------------------
@@ -18,6 +19,7 @@ define([
 return {
   loopParallel: loopParallel,
   loopSeries: loopSeries,
+  eachParallel: eachParallel,
   wait: wait
 };
 
