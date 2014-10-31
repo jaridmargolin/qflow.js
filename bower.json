@@ -1,6 +1,6 @@
 {
   "name": "qflow.js ",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "dependencies": {
     "q": "2.0.2"
   },
